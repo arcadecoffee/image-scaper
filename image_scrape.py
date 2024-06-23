@@ -13,7 +13,7 @@ def main(url):
     content = requests.get(url).content.decode()
     gallery = json.loads(
         html.unescape(
-            re.search(r'<div data-gallery-items="([^ ]*)" ', content)[1]
+            re.search(f'<div data-gallery-items="(\[[^\]]*\])" ', content)[1]
         )
     )
 
